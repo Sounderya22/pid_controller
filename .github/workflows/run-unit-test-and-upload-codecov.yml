@@ -50,6 +50,13 @@ jobs:
           cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
           cmake --build build/ --clean-first --target all test_coverage
 
+      # Generate coverage report using lcov
+      - name: Generate coverage report
+        run: |
+          cd build
+          lcov --capture --directory . --output-file test_coverage.info
+          lcov --remove test_coverage.info '/usr/*' '*/test/*' -o test_coverage_filtered.info 
+
       # Upload coverage result to CodeCov
       - name: Upload coverage result to CodeCov
         uses: codecov/codecov-action@v3
