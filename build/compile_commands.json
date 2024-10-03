@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/sound/pid_controller/build/libs/lib1",
+  "command": "/usr/bin/c++  -I/home/sound/pid_controller/libs/lib1/.  -g --coverage -fprofile-abs-path -g -std=gnu++14 -o CMakeFiles/myLib1.dir/src.cpp.o -c /home/sound/pid_controller/libs/lib1/src.cpp",
+  "file": "/home/sound/pid_controller/libs/lib1/src.cpp"
+},
+{
+  "directory": "/home/sound/pid_controller/build/libs/lib2",
+  "command": "/usr/bin/c++  -I/home/sound/pid_controller/libs/lib2/.  -g --coverage -fprofile-abs-path -g -std=gnu++14 -o CMakeFiles/myLib2.dir/src.cpp.o -c /home/sound/pid_controller/libs/lib2/src.cpp",
+  "file": "/home/sound/pid_controller/libs/lib2/src.cpp"
+},
+{
+  "directory": "/home/sound/pid_controller/build/app",
+  "command": "/usr/bin/c++  -I/home/sound/pid_controller/include -I/home/sound/pid_controller/libs/lib1/. -I/home/sound/pid_controller/libs/lib2/.  -g --coverage -fprofile-abs-path -g -std=gnu++14 -o CMakeFiles/shell-app.dir/main.cpp.o -c /home/sound/pid_controller/app/main.cpp",
+  "file": "/home/sound/pid_controller/app/main.cpp"
+},
+{
+  "directory": "/home/sound/pid_controller/build/test",
+  "command": "/usr/bin/c++  -I/home/sound/pid_controller/include -I/home/sound/pid_controller/libs/lib1/. -I/home/sound/pid_controller/libs/lib2/. -isystem /home/sound/pid_controller/build/_deps/googletest-src/googletest/include -isystem /home/sound/pid_controller/build/_deps/googletest-src/googletest  -g --coverage -fprofile-abs-path -g -std=gnu++14 -o CMakeFiles/cpp-test.dir/main.cpp.o -c /home/sound/pid_controller/test/main.cpp",
+  "file": "/home/sound/pid_controller/test/main.cpp"
+},
+{
+  "directory": "/home/sound/pid_controller/build/test",
+  "command": "/usr/bin/c++  -I/home/sound/pid_controller/include -I/home/sound/pid_controller/libs/lib1/. -I/home/sound/pid_controller/libs/lib2/. -isystem /home/sound/pid_controller/build/_deps/googletest-src/googletest/include -isystem /home/sound/pid_controller/build/_deps/googletest-src/googletest  -g --coverage -fprofile-abs-path -g -std=gnu++14 -o CMakeFiles/cpp-test.dir/test.cpp.o -c /home/sound/pid_controller/test/test.cpp",
+  "file": "/home/sound/pid_controller/test/test.cpp"
+}
+]
