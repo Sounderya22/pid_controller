@@ -1,3 +1,0 @@
-dummy_test.this_should_pass 2 0.00166045
-dummy_test.this_should_pass_too 2 0.00158416
----
