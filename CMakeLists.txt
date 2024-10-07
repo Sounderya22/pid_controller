@@ -120,9 +120,10 @@ if(WANT_COVERAGE)
   # Use gcovr insetad of lcov if you want to see branch coverage as well
   setup_target_for_coverage_gcovr_html ( # use gcovr to generate coverage report
     NAME app_coverage          # target name
-    EXECUTABLE pid_controller_test       # what to run insdie the build directory?
-    EXCLUDE
-    "test/PIDcontroller_test.cpp"    # App does not run unit test, so don't analyze it
+    EXECUTABLE shell-app       # what to run insdie the build directory?
+    EXECUTABLE pid_controller_test       
+    # EXCLUDE
+    # "test/PIDcontroller_test.cpp"    # App does not run unit test, so don't analyze it
     )
 
 endif()

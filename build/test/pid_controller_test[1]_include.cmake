@@ -1,0 +1,5 @@
+if(EXISTS "/home/sound/pid_controller/build/test/pid_controller_test[1]_tests.cmake")
+  include("/home/sound/pid_controller/build/test/pid_controller_test[1]_tests.cmake")
+else()
+  add_test(pid_controller_test_NOT_BUILT pid_controller_test_NOT_BUILT)
+endif()
