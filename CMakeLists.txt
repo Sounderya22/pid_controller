@@ -103,33 +103,34 @@ doxygen_add_docs(docs           # target name
   ${PROJECT_SOURCE_DIR}/include
   )
 
-# # create targets for building code coverage reports
-# if(WANT_COVERAGE)
-#   # unit test coverage:
-#   setup_target_for_coverage_lcov ( # use lcov to generate coverage report
-#     NAME test_coverage          # target name
-#     # EXECUTABLE ctest || true    # what to run insdie the build directory?
-#     #                             #   '|| true' --> continue coverage even if ctest failed
-#     EXECUTABLE ctest     # what to run insdie the build directory?
-#     EXCLUDE
-#       "app/PIDcontroller.cpp"     # Unit test does not run app, so don't analyze it
-#       "*gtest*"          # Don't analyze googleTest code
-#       "/usr/include/*"   # Don't analyze system headers
-#     )
+# create targets for building code coverage reports
+if(WANT_COVERAGE)
+  # unit test coverage:
+  setup_target_for_coverage_lcov ( # use lcov to generate coverage report
+    NAME test_coverage          # target name
+    # EXECUTABLE ctest || true    # what to run insdie the build directory?
+    #                             #   '|| true' --> continue coverage even if ctest failed
+    EXECUTABLE ctest     # what to run insdie the build directory?
+    EXCLUDE
+      "app/main.cpp"     # Unit test does not run app, so don't analyze it
+      "*gtest*"          # Don't analyze googleTest code
+      "/usr/include/*"   # Don't analyze system headers
+    )
 
-#   # code coverage for the app (shell-app):
-#   # Use gcovr insetad of lcov if you want to see branch coverage as well
-#   setup_target_for_coverage_gcovr_html ( # use gcovr to generate coverage report
-#     NAME app_coverage          # target name
-#     EXECUTABLE shell-app       # what to run insdie the build directory?
-#     EXECUTABLE pid_controller_test       
-#     # EXCLUDE
-#     # "test/PIDcontroller_test.cpp"    # App does not run unit test, so don't analyze it
-#     )
+  # code coverage for the app (shell-app):
+  # Use gcovr insetad of lcov if you want to see branch coverage as well
+  setup_target_for_coverage_gcovr_html ( # use gcovr to generate coverage report
+    NAME app_coverage          # target name
+    EXECUTABLE shell-app       # what to run insdie the build directory?
+    # EXECUTABLE pid_controller_test       
+    # EXCLUDE
+    "test/test.cpp"    # App does not run unit test, so don't analyze it
+    "test/main.cpp"    # App does not run unit test, so don't analyze it
+    )
 
-# endif()
+endif()
 
-# # Sanity check:
-# # can also do "cmake -S ./ -B build/ -LAH" to print all variables
-# message(STATUS "CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}")
-# message(STATUS "WANT_COVERAGE    = ${WANT_COVERAGE}")
+# Sanity check:
+# can also do "cmake -S ./ -B build/ -LAH" to print all variables
+message(STATUS "CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}")
+message(STATUS "WANT_COVERAGE    = ${WANT_COVERAGE}")

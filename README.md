@@ -1,7 +1,7 @@
 # cpp-boilerplate-v2
 
 # C++ Boilerplate v2 Badges
-![CICD Workflow status](https://github.com/Sounderya22/pid_controller/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/Sounderya22/pid_controller/branch/main/graph/badge.svg)](https://codecov.io/gh/Sounderya22/pid_controller) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![CICD Workflow status](https://github.com/Uthappa_13/pid_controller/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/Uthappa_13/pid_controller/branch/main/graph/badge.svg)](https://codecov.io/gh/Uthappa_13/pid_controller) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 
 
