@@ -31,15 +31,15 @@ double PIDcontroller::compute(double targetSetpoint) {
     double error = targetSetpoint - actualVelocity;  // Calculate error (target - actual)
     
     // Stub: for now, simply return a constant value
-    return 25.0; // Replace this with the actual PID logic later
+    return 102.0; // Replace this with the actual PID logic later
 }
 
 /**
  * @brief Reset the integral and previous error values (useful when restarting the controller).
  */
 void PIDcontroller::reset() {
-    integral = 0;
-    prevError = 0;
+    integral = 0; // Reset it to 0 after
+    prevError = 0; // Reset it to 0 after
 }
 
 /**
@@ -47,7 +47,7 @@ void PIDcontroller::reset() {
  * @return The proportional gain
  */
 double PIDcontroller::getKp() const {
-    return Kp;
+    return 0;
 }
 
 /**
@@ -55,7 +55,7 @@ double PIDcontroller::getKp() const {
  * @return The integral gain
  */
 double PIDcontroller::getKi() const {
-    return Ki;
+    return 0;
 }
 
 /**
@@ -63,7 +63,7 @@ double PIDcontroller::getKi() const {
  * @return The derivative gain
  */
 double PIDcontroller::getKd() const {
-    return Kd;
+    return 0;
 }
 
 /**
@@ -71,7 +71,7 @@ double PIDcontroller::getKd() const {
  * @return The current actual velocity of the system
  */
 double PIDcontroller::getActualVelocity() const {
-    return actualVelocity;
+    return 20;
 }
 
 /**
