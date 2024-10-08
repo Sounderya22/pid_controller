@@ -48,8 +48,8 @@ TEST(PIDcontrollerTest, TestReset) {
   EXPECT_NE(result2, result1);  //
 }
 
-// Main entry point for the tests
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
+// // Main entry point for the tests
+// int main(int argc, char **argv) {
+//   ::testing::InitGoogleTest(&argc, argv);
+//   return RUN_ALL_TESTS();
+// }
