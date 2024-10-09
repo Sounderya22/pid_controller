@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(TDD_PID_PairA)
+project(TDD_PID_PairB)
 
 #
 # GoogleTest Setup
@@ -91,6 +91,7 @@ endif()
 # ref: https://iamsorush.com/posts/cpp-cmake-essential/
 # ref: https://cmake.org/cmake/help/latest/guide/tutorial/index.html
 #
+add_subdirectory(libs)
 add_subdirectory(app)
 add_subdirectory(test)
 
@@ -111,7 +112,7 @@ if(WANT_COVERAGE)
     #                             #   '|| true' --> continue coverage even if ctest failed
     EXECUTABLE ctest     # what to run insdie the build directory?
     EXCLUDE
-      "app/PIDcontroller.cpp"     # Unit test does not run app, so don't analyze it
+      "app/main.cpp"     # Unit test does not run app, so don't analyze it
       "*gtest*"          # Don't analyze googleTest code
       "/usr/include/*"   # Don't analyze system headers
     )
@@ -121,9 +122,9 @@ if(WANT_COVERAGE)
   setup_target_for_coverage_gcovr_html ( # use gcovr to generate coverage report
     NAME app_coverage          # target name
     EXECUTABLE shell-app       # what to run insdie the build directory?
-    EXECUTABLE pid_controller_test       
-    # EXCLUDE
-    # "test/PIDcontroller_test.cpp"    # App does not run unit test, so don't analyze it
+    EXCLUDE
+    "test/test.cpp"    # App does not run unit test, so don't analyze it
+    "test/main.cpp"    # App does not run unit test, so don't analyze it
     )
 
 endif()

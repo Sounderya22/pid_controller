@@ -1,21 +1,23 @@
 #include <iostream>
+
 #include "PIDcontroller.hpp"
 
 int main() {
-    
-    PIDcontroller pid(1.0, 0.1, 0.01, 0.1); 
+  // Variable declaration
+  double new_velocity;
 
-    
-    pid.setActualVelocity(100.0);
+  // Creating an object for the class PIDcontroller
+  PIDcontroller my_controller(0.50, 0.01, 0.1, 1);
 
-    
-    double targetSetpoint = 50.0;
+  // Set the actual velocity
+  my_controller.setActualVelocity(100.0);
 
-    
-    double newVelocity = pid.compute(targetSetpoint);
+  // Compute the new velocity
+  new_velocity = my_controller.compute(50.0);
 
-    
-    std::cout << "New velocity after applying PID control: " << newVelocity << std::endl;
+  // Print the computed velocity
+  std::cout << "The new computed velocity is " << new_velocity << '\n';
 
-    return 0;
+  // Reset the PID parameters
+  my_controller.reset();
 }

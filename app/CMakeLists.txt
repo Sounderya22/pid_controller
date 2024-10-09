@@ -1,15 +1,23 @@
-# Create a library from the PIDcontroller.cpp file
-add_library(pid_controller_lib
+# Any C++ source files needed to build this target (shell-app).
+add_executable(shell-app
   # list of source cpp files:
-  PIDcontroller.cpp
-)
+  main.cpp
+  )
 
-target_include_directories(pid_controller_lib PUBLIC
+# Any include directories needed to build this target.
+# Note: we do not need to specify the include directories for the
+# dependent libraries, they are automatically included.
+target_include_directories(shell-app PUBLIC
+  # list inclue directories:
   ${CMAKE_SOURCE_DIR}/include
 )
 
-add_executable(pid_controller_main
-  main.cpp
-)
+# Any dependent libraires needed to build this target.
+target_link_libraries(shell-app PUBLIC
+  # list of libraries
+  myLib1
+  )
 
-target_link_libraries(pid_controller_main pid_controller_lib)
+target_link_options(shell-app PUBLIC
+  --static
+  )

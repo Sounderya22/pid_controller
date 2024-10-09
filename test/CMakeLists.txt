@@ -1,22 +1,25 @@
-# Add executable for the PID controller test
-add_executable(pid_controller_test
+# Any C++ source files needed to build this target (cpp-test).
+add_executable(cpp-test
   # list of source cpp files:
+  main.cpp
   PIDcontroller_test.cpp
-)
+  )
 
-
-target_include_directories(pid_controller_test PUBLIC
+# Any include directories needed to build this target.
+# Note: we do not need to specify the include directories for the
+# dependent libraries, they are automatically included.
+target_include_directories(cpp-test PUBLIC
+  # list of include directories:
   ${CMAKE_SOURCE_DIR}/include
-)
+  )
 
-
-# Link libraries for pid_controller_test
-target_link_libraries(pid_controller_test PUBLIC
+# Any dependent libraires needed to build this target.
+target_link_libraries(cpp-test PUBLIC
+  # list of libraries:
   gtest
-  gtest_main
-  pid_controller_lib  # Link the PID controller library here
-)
+  myLib1
+  )
 
 # Enable CMake’s test runner to discover the tests included in the
 # binary, using the GoogleTest CMake module.
-gtest_discover_tests(pid_controller_test)
+gtest_discover_tests(cpp-test)
