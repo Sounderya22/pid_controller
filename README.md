@@ -61,9 +61,6 @@ The **PID Controller** calculates the proportional, integral, and derivative err
 # Run program:
   ./build/app/shell-app
 
-# Asks for enter Desire speed
-# Enter numeric desired speed
-# you will receive an output speed that is cal after one iteration/time step of the PID controller. (Here actual speed is set to 100)
 #************  END ****************
 
 
