@@ -30,6 +30,9 @@ The **PID Controller** calculates the proportional, integral, and derivative err
 - Driver : Uthappa Madettira- (https://github.com/Uthappa13)
 - Navigator: Keyur Borad - (https://github.com/keyurborad5)
 
+## Discussion statement
+
+The implementation passes the unit tests written and meets the expectation.
 
 ## Run program
 ```bash
