@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(TDD_PID_PairA)
+project(TDD_PID_PairB)
 
 #
 # GoogleTest Setup
