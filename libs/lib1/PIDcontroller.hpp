@@ -9,18 +9,19 @@
 
 class PIDcontroller {
  private:
-  double Kp;       ///< Proportional gain
-  double Ki;       ///< Integral gain
-  double Kd;       ///< Derivative gain
-  double prevError; ///< Previous error for derivative calculation
-  double integral;  ///< Sum of past errors for integral calculation
-  double actualVelocity; ///< Current velocity of the system
-  
-  double deltaTime; ///< Time step for the PID control loop
+  double Kp;              ///< Proportional gain
+  double Ki;              ///< Integral gain
+  double Kd;              ///< Derivative gain
+  double prevError;       ///< Previous error for derivative calculation
+  double integral;        ///< Sum of past errors for integral calculation
+  double actualVelocity;  ///< Current velocity of the system
+
+  double deltaTime;  ///< Time step for the PID control loop
 
  public:
   /**
-   * @brief Constructor to initialize the PID controller gains and other necessary parameters.
+   * @brief Constructor to initialize the PID controller gains and other
+   * necessary parameters.
    * @param kp Proportional gain
    * @param ki Integral gain
    * @param kd Derivative gain
@@ -35,15 +36,17 @@ class PIDcontroller {
   void setActualVelocity(double velocity);
 
   /**
-   * @brief Compute the new velocity based on the target setpoint and actual velocity.
-   * This method will calculate the error, update integral and derivative terms, and output the computed velocity.
+   * @brief Compute the new velocity based on the target setpoint and actual
+   * velocity. This method will calculate the error, update integral and
+   * derivative terms, and output the computed velocity.
    * @param targetSetpoint The desired velocity (target setpoint)
    * @return The computed velocity after applying the PID control logic
    */
   double compute(double targetSetpoint);
 
   /**
-   * @brief Reset the integral and previous error values (useful when restarting the controller).
+   * @brief Reset the integral and previous error values (useful when restarting
+   * the controller).
    */
   void reset();
 
