@@ -16,7 +16,5 @@ int main(){
     std::cout<<"The new computed velocity is "<<new_velocity<<'\n';
 
     my_controller.reset();
-
-
-
+    
 }

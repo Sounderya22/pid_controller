@@ -1,7 +1,7 @@
 # cpp-boilerplate-v2
 
 # C++ Boilerplate v2 Badges
-![CICD Workflow status](https://github.com/Uthappa_13/pid_controller/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/Uthappa_13/pid_controller/branch/main/graph/badge.svg)](https://codecov.io/gh/Uthappa_13/pid_controller) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![CICD Workflow status](https://github.com/Uthappa13/pid_controller/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/Uthappa13/pid_controller/branch/main/graph/badge.svg)](https://codecov.io/gh/Uthappa13/pid_controller) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 
 
@@ -31,61 +31,80 @@ The **PID Controller** calculates the proportional, integral, and derivative err
 - Navigator: Keyur Borad - (https://github.com/keyurborad5)
 
 
-## Standard install via command-line
+## Run program
 ```bash
-# Download the code:
-  git clone https://github.com/TommyChangUMD/cpp-boilerplate-v2
-  cd cpp-boilerplate-v2
+  cd pid_controller
 # Configure the project and generate a native build system:
-  # Must re-run this command whenever any CMakeLists.txt file has been changed.
-  cmake -S ./ -B build/
-# Compile and build the project:
-  # rebuild only files that are modified since the last build
-  cmake --build build/
-  # or rebuild everything from scracth
-  cmake --build build/ --clean-first
-  # to see verbose output, do:
-  cmake --build build/ --verbose
-# Run program:
-  ./build/app/shell-app
-# Run tests:
-  cd build/; ctest; cd -
-  # or if you have newer cmake
-  ctest --test-dir build/
-# Build docs:
-  cmake --build build/ --target docs
-  # open a web browser to browse the doc
-  open docs/html/index.html
-# Clean
-  cmake --build build/ --target clean
-# Clean and start over:
-  rm -rf build/
-```
-
-ref: https://cmake.org/cmake/help/latest/manual/cmake.1.html
-
-## Building for code coverage (for assignments beginning in Week 4)
-
-```bash
-# if you don't have gcovr or lcov installed, do:
-  sudo apt-get install gcovr lcov
+  # Must re-run this command whenever any CMakeLists.txt file has been changed
 # Set the build type to Debug and WANT_COVERAGE=ON
   cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
-# Now, do a clean compile, run unit test, and generate the covereage report
+
+#************CODE COVERAGE REPORT *********************
+# Now, do a clean compile, run unit test, and generate the covereage report of unit tests
   cmake --build build/ --clean-first --target all test_coverage
 # open a web browser to browse the test coverage report
   open build/test_coverage/index.html
 
-This generates a index.html page in the build/test_coverage sub-directory that can be viewed locally in a web browser.
-```
-
-You can also get code coverage report for the *shell-app* target, instead of unit test. Repeat the previous 2 steps but with the *app_coverage* target:
-
-``` bash
-# Now, do another clean compile, run shell-app, and generate its covereage report
+  # to see the code coverage of shell-app
+  # Now, do another clean compile, run shell-app, and generate its covereage report
   cmake --build build/ --clean-first --target all app_coverage
 # open a web browser to browse the test coverage report
   open build/app_coverage/index.html
+#************  END ****************
 
-This generates a index.html page in the build/app_coverage sub-directory that can be viewed locally in a web browser.
-```
+#************RUN UNIT TEST *********************
+# TO run test case
+  ctest --test-dir build/
+#************  END ****************
+
+#************RUN SHELL-APP *********************
+# Run program:
+  ./build/app/shell-app
+
+# Asks for enter Desire speed
+# Enter numeric desired speed
+# you will receive an output speed that is cal after one iteration/time step of the PID controller. (Here actual speed is set to 100)
+#************  END ****************
+
+
+#************STATIC CODE ANAYLYSIS *********************
+#Use clang-tidy for static code analysis (modify as needed):
+# if you need to install clang-tidy, do
+sudo apt install clang-tidy
+
+# run in the top-level project directory (eg., in cpp-boilerplate-v2/)
+clang-tidy -p ./ $( find . -name *.cpp | grep -v "/build/" )
+#************  END ****************
+
+
+#************Foramatting as per Google C++ style *********************
+# first install clangd-format, if needed
+sudo apt install clangd-format
+
+# Change to directory where your cpp and hpp files are located
+# Now, you can see the reformatted output
+clang-format -style=Google your_file.cpp
+
+# If you want to completely replace the source code (ie., keep changes in-place) do:
+clang-format -style=Google -i your_file.cpp
+
+#************  END ****************
+
+
+
+#************Build Doxygen docs*********************
+# Build docs:
+  cmake --build build/ --target docs
+  # open a web browser to browse the doc
+  open docs/html/index.html
+#************  END ****************
+
+#************Remove Doxygen docs*********************
+# Clean
+  cmake --build build/ --target clean
+#************  END ****************
+
+#************Remove build folder*********************
+# Clean and start over:
+  rm -rf build/
+#************  END ****************
